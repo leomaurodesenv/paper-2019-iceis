@@ -9,17 +9,23 @@ from sklearn.linear_model import LinearRegression
 # Linear Regression (LR) Extractor
 # ------------------------------------------------
 class LR_Extractor:
-
-    # Init the model
+    
+    ''' Linear Regression (LR) Extractor '''
     def __init__(self):
         self._model = LeastSquares()
     
     
-    # Extraction
-    #- X: X-axis values
-    #- Y: Y-axis values
-    #- return: model (LeastSquares),
-    #          R2, Angle (degrees)
+    '''
+    function: 
+        - compute(X, Y): feature extraction
+    input:
+        - X: X-axis values
+        - Y: Y-axis values
+    return:
+        - model: LeastSquares
+        - R2: coefficient of determination
+        - angle: angle in degrees
+    '''
     def compute(self, X, Y):
         X, Y = self._clean(X, Y)
         # Least Squares
@@ -35,10 +41,16 @@ class LR_Extractor:
         return self._model, r2, degrees
     
     
-    # Clean - remove None
-    #- X: X-axis values
-    #- Y: Y-axis values
-    #- return: X, Y
+    '''
+    function: (private)
+        - _clean(X, Y): remove Nones
+    input:
+        - X: X-axis values
+        - Y: Y-axis values
+    return:
+        - X: cleaned X-axis values
+        - Y: cleaned Y-axis values
+    '''
     def _clean(self, X, Y):
         x, y = [], []
         for i in range(len(Y)):
@@ -53,15 +65,20 @@ class LR_Extractor:
 # ------------------------------------------------
 class LeastSquares:
 
-    # Init the model
+    ''' Simple Linear Regression Model '''
     def __init__(self):
         self._model = None
     
     
-    # Least Squares
-    #- X: X-axis values
-    #- Y: Y-axis values
-    #- return: None
+    '''
+    function: 
+        - compute(X, Y): least squares
+    input:
+        - X: X-axis values
+        - Y: Y-axis values
+    return:
+        - None
+    '''
     def compute(self, X, Y):
         alpha, beta = 0, 0
         ran = range(len(X))
@@ -71,17 +88,26 @@ class LeastSquares:
         self._model = (alpha, beta)
     
     
-    # Prediction
-    #- x: x value
-    #- return: predicted y value
+    '''
+    function: 
+        - predict(x): prediction
+    input:
+        - x: x value
+    return:
+        - y: predicted y value
+    '''
     def predict(self, x):
         alpha, beta = self._model
         pred = alpha + beta*x
         return pred
     
     
-    # Get Model
-    #- return: the model (alpha, beta)
+    '''
+    function: 
+        - get_model(): get model
+    return:
+        - model: (alpha, beta)
+    '''
     def get_model(self):
         alpha, beta = self._model
         return (alpha, beta)

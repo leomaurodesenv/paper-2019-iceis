@@ -7,15 +7,21 @@ import math
 # Coefficient of Angle (CA) Extractor
 # ------------------------------------------------
 class CA_Extractor:
-
-    # Init the model
+    
+    ''' Coefficient of Angle (CA) Extractor '''
     def __init__(self):
         self._T = None
 
-    # Extraction
-    #- X: X-axis values
-    #- Y: Y-axis values
-    #- return: T
+
+    '''
+    function: 
+        - compute(X, Y): feature extraction
+    input:
+        - X: X-axis values
+        - Y: Y-axis values
+    return:
+        - T: theta values
+    '''
     def compute(self, X, Y):
         idx, last = 0, len(Y)-1
         self._T = []
