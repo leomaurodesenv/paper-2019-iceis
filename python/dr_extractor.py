@@ -9,23 +9,24 @@ import pandas as pd
 # Delta Rank (DR) Extractor
 # ------------------------------------------------
 class DR_Extractor:
-    
     ''' Delta Rank (DR) Extractor '''
+
     def __init__(self):
+        ''' Delta Rank (DR) object construtor '''
         self._D = None
 
 
-    '''
-    function: 
-        - compute(X, Y): feature extraction
-    input:
-        - X: X-axis values
-        - Y: Y-axis values
-    return:
-        - D: delta values
-        - S(D): entropy of D
-    '''
     def compute(self, X, Y):
+        '''
+        function: 
+            - compute(X, Y): feature extraction
+        input:
+            - X: X-axis values
+            - Y: Y-axis values
+        return:
+            - D: delta values
+            - S(D): entropy of D
+        '''
         idx, last = 0, len(Y)-1
         self._D = []
         while idx < last:
@@ -38,15 +39,15 @@ class DR_Extractor:
         return self._D, self._entropy(self._D)
 
     
-    '''
-    function: (private)
-        - _entropy(values): compute the entropy
-    input:
-        - values: number values
-    return:
-        - S: entropy
-    '''
     def _entropy(self, values):
+        '''
+        function: (private)
+            - _entropy(values): compute the entropy
+        input:
+            - values: number values
+        return:
+            - S: entropy
+        '''
         serie = pd.Series(values)
         p_data = serie.value_counts() / len(serie)  # calculates the probabilities
         score = sc.stats.entropy(p_data)  # input probabilities to get the entropy
