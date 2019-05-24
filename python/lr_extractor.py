@@ -1,32 +1,38 @@
 # Imports
-import sys
 import math
 from statistics import mean
 from sklearn.linear_model import LinearRegression
 
+'''
+@module: LR_Extractor
+Linear Regression (LR) Extractor
 
-# ------------------------------------------------
-# Linear Regression (LR) Extractor
-# ------------------------------------------------
+@authors: Leonardo Mauro <leomaurodesenv>
+@link: https://github.com/leomaurodesenv/paper-2019-iceis GitHub
+@license: Apache 2.0 License
+@copyright: 2019 Leonardo Mauro
+@access: public
+'''
+
 class LR_Extractor:
-    ''' Linear Regression (LR) Extractor '''
+    '''
+    Linear Regression (LR) Extractor
+    '''
 
     def __init__(self):
-        ''' Linear Regression (LR) object construtor  '''
+        '''
+        Linear Regression construtor
+        '''
         self._model = LeastSquares()
     
     
     def compute(self, X, Y):
-        '''
-        function: 
-            - compute(X, Y): feature extraction
-        input:
-            - X: X-axis values
-            - Y: Y-axis values
-        return:
-            - model: LeastSquares
-            - R2: coefficient of determination
-            - angle: angle in degrees
+        ''' 
+        Feature extraction
+        @param X: X-axis values
+        @param Y: Y-axis values
+        @return: model: LeastSquares, R2: coefficient of determination, angle
+        @access: public
         '''
         X, Y = self._clean(X, Y)
         # Least Squares
@@ -43,15 +49,12 @@ class LR_Extractor:
     
     
     def _clean(self, X, Y):
-        '''
-        function: (private)
-            - _clean(X, Y): remove Nones
-        input:
-            - X: X-axis values
-            - Y: Y-axis values
-        return:
-            - X: cleaned X-axis values
-            - Y: cleaned Y-axis values
+        ''' 
+        Clean the None values
+        @param X: X-axis values
+        @param Y: Y-axis values
+        @return: new X, Y-axis
+        @access: private
         '''
         x, y = [], []
         for i in range(len(Y)):
@@ -60,27 +63,36 @@ class LR_Extractor:
                 y.append(Y[i])
         return x, y
 
+'''
+@module: LeastSquares
+Simple Linear Regression Model
 
-# ------------------------------------------------
-# Simple Linear Regression Model
-# ------------------------------------------------
+@authors: Leonardo Mauro <leomaurodesenv>
+@link: https://github.com/leomaurodesenv/paper-2019-iceis GitHub
+@license: Apache 2.0 License 
+@copyright: 2019 Leonardo Mauro
+@access: public
+'''
+
 class LeastSquares:
-    ''' Simple Linear Regression Model '''
+    '''
+    Simple Linear Regression Model
+    '''
 
     def __init__(self):
-        ''' Linear Regression object construtor '''
+        '''
+        Linear Regression object construtor
+        '''
         self._model = None
     
     
     def compute(self, X, Y):
-        '''
-        function: 
-            - compute(X, Y): least squares
-        input:
-            - X: X-axis values
-            - Y: Y-axis values
-        return:
-            - None
+        ''' 
+        Compute least squares
+        @param X: X-axis values
+        @param Y: Y-axis values
+        @return: None
+        @access: public
         '''
         alpha, beta = 0, 0
         ran = range(len(X))
@@ -91,13 +103,11 @@ class LeastSquares:
     
     
     def predict(self, x):
-        '''
-        function: 
-            - predict(x): prediction
-        input:
-            - x: x value
-        return:
-            - y: predicted y value
+        ''' 
+        Prediction
+        @param x: x value
+        @return: y: predicted y value
+        @access: public
         '''
         alpha, beta = self._model
         pred = alpha + beta*x
@@ -105,11 +115,10 @@ class LeastSquares:
     
     
     def get_model(self):
-        '''
-        function: 
-            - get_model(): get model
-        return:
-            - model: (alpha, beta)
+        ''' 
+        Get model (alpha, beta)
+        @return: model
+        @access: public
         '''
         alpha, beta = self._model
         return (alpha, beta)

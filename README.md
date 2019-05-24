@@ -1,5 +1,7 @@
 # Detecting Influencers in Very Large Social Networks of Games
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1dce6011250d440bbb1ddec95d02886d)](https://www.codacy.com/app/leomaurodesenv/paper-2019-iceis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leomaurodesenv/paper-2019-iceis&amp;utm_campaign=Badge_Grade)
+
 This repository present three temporal feature extractors. Each extractor captures a specific characteristic of the a data stream. We used these extractors to infer features about players of well-known Super Mario Maker game (Nintendo Inc., Kyoto, Japan).   
 
 _Paper:_ Leonardo Mauro Pereira Moraes, and Robson Leonardo Ferreira Cordeiro. **Detecting Influencers in Very Large Social Networks of Games**. _In 21th International Conference on Enterprise Information Systems (ICEIS), Crete, Greece, 2019_. ([Presentation](presentation.pdf))   
@@ -31,9 +33,10 @@ feature2 = ext2.compute(X, Y)
 feature3 = ext3.compute(X, Y)
 ```
    
-- See the commented code with an example in [Jupyter Notebook](jupyter/6-feature-extractors-example.ipynb).
+-   See the commented code with an example in [Jupyter Notebook](jupyter/6-feature-extractors-example.ipynb).
    
 ---
-### Also look ~
-- License: [Apache 2.0](LICENSE)
-- Created by Leonardo Mauro ~ [leomaurodesenv](https://github.com/leomaurodesenv/)
+## Also look ~
+
+-   License: [Apache 2.0](LICENSE)
+-   Created by Leonardo Mauro ~ [leomaurodesenv](https://github.com/leomaurodesenv/)

@@ -1,31 +1,37 @@
 # Imports
-import sys
-import math
 import scipy as sc
 import pandas as pd
 
+'''
+@module: DR_Extractor
+Delta Rank (DR) Extractor
 
-# ------------------------------------------------
-# Delta Rank (DR) Extractor
-# ------------------------------------------------
+@authors: Leonardo Mauro <leomaurodesenv>
+@link: https://github.com/leomaurodesenv/paper-2019-iceis GitHub
+@license: Apache 2.0 License
+@copyright: 2019 Leonardo Mauro
+@access: public
+'''
+
 class DR_Extractor:
-    ''' Delta Rank (DR) Extractor '''
+    '''
+    Delta Rank (DR) Extractor
+    '''
 
     def __init__(self):
-        ''' Delta Rank (DR) object construtor '''
+        '''
+        Delta Rank object construtor
+        '''
         self._D = None
 
 
     def compute(self, X, Y):
-        '''
-        function: 
-            - compute(X, Y): feature extraction
-        input:
-            - X: X-axis values
-            - Y: Y-axis values
-        return:
-            - D: delta values
-            - S(D): entropy of D
+        ''' 
+        Feature extraction
+        @param X: X-axis values
+        @param Y: Y-axis values
+        @return: D: delta values, S(D): entropy of D
+        @access: public
         '''
         idx, last = 0, len(Y)-1
         self._D = []
@@ -40,13 +46,11 @@ class DR_Extractor:
 
     
     def _entropy(self, values):
-        '''
-        function: (private)
-            - _entropy(values): compute the entropy
-        input:
-            - values: number values
-        return:
-            - S: entropy
+        ''' 
+        Compute the entropy
+        @param values: array of values
+        @return: S: entropy of a set
+        @access: private
         '''
         serie = pd.Series(values)
         p_data = serie.value_counts() / len(serie)  # calculates the probabilities

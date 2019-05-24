@@ -1,28 +1,36 @@
 # Imports
-import sys
 import math
 
+'''
+@module: CA_Extractor
+Coefficient of Angle (CA) Extractor
 
-# ------------------------------------------------
-# Coefficient of Angle (CA) Extractor
-# ------------------------------------------------
+@authors: Leonardo Mauro <leomaurodesenv>
+@link: https://github.com/leomaurodesenv/paper-2019-iceis GitHub
+@license: Apache 2.0 License
+@copyright: 2019 Leonardo Mauro
+@access: public
+'''
+
 class CA_Extractor:
-    ''' Coefficient of Angle (CA) Extractor '''
+    '''
+    Coefficient of Angle (CA) Extractor
+    '''
 
     def __init__(self):
-        ''' Coefficient of Angle (CA) object construtor '''
+        '''
+        Coefficient of Angle object construtor
+        '''
         self._T = None
 
 
     def compute(self, X, Y):
-        '''
-        function: 
-            - compute(X, Y): feature extraction
-        input:
-            - X: X-axis values
-            - Y: Y-axis values
-        return:
-            - T: theta values
+        ''' 
+        Feature extraction
+        @param X: X-axis values
+        @param Y: Y-axis values
+        @return: T: theta values
+        @access: public
         '''
         idx, last = 0, len(Y)-1
         self._T = []
