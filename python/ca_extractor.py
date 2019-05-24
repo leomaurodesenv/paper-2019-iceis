@@ -24,6 +24,7 @@ class CA_Extractor:
         self._T = None
 
 
+    @classmethod
     def compute(self, X, Y):
         ''' 
         Feature extraction

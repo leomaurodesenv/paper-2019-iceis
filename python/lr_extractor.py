@@ -26,6 +26,7 @@ class LR_Extractor:
         self._model = LeastSquares()
     
     
+    @classmethod
     def compute(self, X, Y):
         ''' 
         Feature extraction
@@ -48,6 +49,7 @@ class LR_Extractor:
         return self._model, r2, degrees
     
     
+    @classmethod
     def _clean(self, X, Y):
         ''' 
         Clean the None values
@@ -57,10 +59,10 @@ class LR_Extractor:
         @access: private
         '''
         x, y = [], []
-        for i in range(len(Y)):
-            if(Y[i] is not None):
+        for i, value in enumerate(Y):
+            if(value is not None):
                 x.append(X[i])
-                y.append(Y[i])
+                y.append(value)
         return x, y
 
 '''
@@ -86,6 +88,7 @@ class LeastSquares:
         self._model = None
     
     
+    @classmethod
     def compute(self, X, Y):
         ''' 
         Compute least squares
@@ -102,6 +105,7 @@ class LeastSquares:
         self._model = (alpha, beta)
     
     
+    @classmethod
     def predict(self, x):
         ''' 
         Prediction
@@ -114,6 +118,7 @@ class LeastSquares:
         return pred
     
     
+    @classmethod
     def get_model(self):
         ''' 
         Get model (alpha, beta)

@@ -25,6 +25,7 @@ class DR_Extractor:
         self._D = None
 
 
+    @classmethod
     def compute(self, X, Y):
         ''' 
         Feature extraction
@@ -45,6 +46,7 @@ class DR_Extractor:
         return self._D, self._entropy(self._D)
 
     
+    @classmethod
     def _entropy(self, values):
         ''' 
         Compute the entropy
