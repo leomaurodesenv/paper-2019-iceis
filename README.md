@@ -34,6 +34,7 @@ feature3 = ext3.compute(X, Y)
 ```
    
 -   See the commented code with an example in [Jupyter Notebook](jupyter/6-feature-extractors-example.ipynb).
+-   See paper experiments in [folder](jupyter/).
    
 ---
 ## Citation
