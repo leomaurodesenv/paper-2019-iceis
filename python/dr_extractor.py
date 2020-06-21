@@ -39,7 +39,7 @@ class DR_Extractor:
         while idx < last:
             # exist keys? (in range)
             nxt = idx + 1
-            if Y[nxt] is not None and Y[idx] is not None in Y:
+            if Y[nxt] is not None and Y[idx] is not None:
                 delta = Y[nxt] - Y[idx]
                 self._D.append(delta)
             idx += 1
